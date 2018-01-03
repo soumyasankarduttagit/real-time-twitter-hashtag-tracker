@@ -1,0 +1,623 @@
+body {
+  background: url(../Assets/bg.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+/*For 4K max width 2560px*/
+
+@media (max-width: 2560px) {
+  .twitter-logo {
+    display: block;
+    max-width: 530px;
+    position: absolute;
+    top: 20%;
+    left: 18%;
+    z-index: 1;
+    height: 15.8%;
+    width: 20%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    margin: 8% auto 0;
+    text-align: right;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 70px;
+    width: 500px;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 24px;
+    top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 70px;
+    height: 70px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}
+
+
+/*For Laptop-L max width 1440px*/
+
+@media (max-width: 1440px) {
+  .twitter-logo {
+    display: block;
+    max-width: 450px;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 1;
+    height: 38.8%;
+    width: 28%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    margin: 13% auto 0;
+    text-align: right;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 70px;
+    width: 500px;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 28px;
+    top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 70px;
+    height: 70px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}
+
+
+/*For Laptop-1024px*/
+
+@media (max-width: 1024px) {
+  .twitter-logo {
+    display: block;
+    max-width: 30%;
+    position: absolute;
+    top: 18%;
+    left: 10%;
+    z-index: 1;
+    height: 30.8%;
+    width: 38%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    margin: 16% auto 0;
+    text-align: right;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 70px;
+    width: 500px;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 28px;
+   top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 70px;
+    height: 70px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}
+
+
+/*For Tablet-768px*/
+
+@media (max-width: 768px) {
+  .twitter-logo {
+    display: block;
+    max-width: 30%;
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    z-index: 1;
+    height: 30.8%;
+    width: 38%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    margin: 16% auto 0;
+    text-align: right;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 70px;
+    width: 500px;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 28px;
+    top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 70px;
+    height: 70px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}
+
+
+/*For max-width 650px*/
+
+@media (max-width: 650px) {
+  .twitter-logo {
+    display: block;
+    max-width: 220;
+    position: absolute;
+    top: 12%;
+    left: 0px;
+    z-index: 1;
+    height: 30.8%;
+    width: 38%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 450px;
+    margin: 16% auto 0;
+    text-align: right;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 70px;
+    width: 460px;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 28px;
+    top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 70px;
+    height: 70px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}
+
+
+/*For Max-width 500px*/
+
+@media (max-width: 500px) {
+  .twitter-logo {
+    display: block;
+    max-width: 150;
+    position: absolute;
+    top: 10%;
+    left: -20px;
+    z-index: 1;
+    height: 20.8%;
+    width: 28%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 420px;
+    margin: 16% auto 0;
+    text-align: right;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 60px;
+    width: 97%;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 24px;
+    top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 70px;
+    height: 70px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}
+
+
+/* For Mobile Large max-width 435px*/
+
+@media (max-width: 435px) {
+  .twitter-logo {
+    display: block;
+    max-width: 300px;
+    position: absolute;
+    top: 10%;
+    left: -100px;
+    z-index: 1;
+    height: 30.8%;
+    width: 38%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 370px;
+    margin: 16% auto 0;
+    text-align: right;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 60px;
+    width: 97%;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 24px;
+    top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 70px;
+    height: 70px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}
+
+
+/*For Mobile-M max-width 375px*/
+
+@media (max-width: 375px) {
+  .twitter-logo {
+    display: none;
+    max-width: 0px;
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    z-index: 1;
+    height: 0%;
+    width: 0%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 97%;
+    margin: 16% auto 0;
+    text-align: right;
+    padding-left: 3%;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    padding-right: 10%;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 40px;
+    width: 300px;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 18px;
+    top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}
+
+
+/*For Mobile-S max-width 320px*/
+
+@media (max-width: 320px) {
+  .twitter-logo {
+    display: none;
+    max-width: 0px;
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    z-index: 1;
+    height: 0%;
+    width: 0%;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 97%;
+    margin: 16% auto 0;
+    text-align: right;
+    padding-left: 0%;
+  }
+  .text-block {
+    text-align: right;
+    color: #fff;
+    margin-bottom: 30px;
+    padding-right: 10%;
+    font-family: Muli;
+    font-weight: normal;
+  }
+  .text-block span {
+    display: block;
+  }
+  .input-wrapper {
+    background: #fff;
+    border: 0px solid #ccc;
+    position: relative;
+    border-radius: 50px;
+    height: 40px;
+    width: 300px;
+    padding-top: 0px;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+    margin-top: 100px;
+  }
+  .input-wrapper input[type="text"] {
+    border: 0;
+    background: transparent;
+    position: relative;
+    color: #3C92C9;
+    font-family: 'Muli';
+    font-size: 18px;
+    top: 4px;
+    height: 62px;
+  }
+  .search {
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    bottom: -50px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    background: #42B4FC url(../Assets/Search.png) no-repeat center center;
+    background-size: 50%;
+    border: 1px solid #42B4FC;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px 0 rgba(134, 134, 134, 0.50);
+  }
+}

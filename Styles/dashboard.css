@@ -1,0 +1,103 @@
+.ajax-loader {
+  visibility: hidden;
+  background-color: rgba(255,255,255,0.7);
+  position: absolute;
+  z-index: +100 !important;
+  width: 100%;
+  height:100%;
+}
+
+.ajax-loader img {
+  position: relative;
+  top:45%;
+  left:45%;
+}
+.backWrapper {
+	background-image: radial-gradient(50% 175%, #55C8FF 50%, #42B4FC 100%);
+	height:50px;
+	padding-top:0px;
+	padding-bottom:0px;
+	width:100%;
+}
+.backContainer {
+	position: absolute;
+	right:4%;
+	top:20px;
+}
+.backContainer img {
+
+	width:20px;
+	height:20px;
+	display:inline;
+}
+.backContainer label {
+	font-family: Muli;
+	font-size: 18px;
+	color: #FFFFFF;
+	padding-left:10px;
+	font-weight: normal;
+}
+.countChartWrapper {
+	background-image: radial-gradient(50% 175%, #55C8FF 50%, #42B4FC 100%);
+	height:400px;
+	padding-top:0px;
+	padding-bottom:0px;
+	width:100%;
+}
+.numTweetWrapper {
+	text-align: center;
+	background-color:#fff;
+	height:200px;
+	paddig-top:0px;
+	padding-bottom:0px;
+	width:100%;
+}
+.numTweetWrapper h1 {
+	font-family: Muli;
+	font-size: 72px;
+	font-weight: normal;
+	color: #3C92C9;
+	letter-spacing: 2.8px;
+}
+.numTweetWrapper h4 {
+	padding-top:4%;
+	font-family: Muli;
+	font-weight: normal;
+	color: #3C92C9;
+	letter-spacing: 2.8px;
+}
+.containerFlux {
+	width:100%;
+}
+.row {
+	background-color:#fff;
+}
+.card
+{
+	background-image: radial-gradient(46% 169%, #55C8FF 49%, #42B4FC 100%);
+}
+#map,#map1 {
+	height:300px;
+	padding-top:10px;
+	padding-bottom:0px;
+}
+#reach {
+	background-image: radial-gradient(54% 169%, #55C8FF 49%, #42B4FC 100%);
+	height:100px;
+	border:0px;
+}
+.cardText{
+	padding-top:10px;
+	padding-bottom:5%;
+	font-family: Muli;
+	font-weight: normal;
+	color: #fff;
+	letter-spacing: 2.8px;
+}
+.mapContainer {
+	background-color: white;
+	height:300px;
+	padding-top:0px;
+	padding-bottom:0px;
+	width:100%;
+}
