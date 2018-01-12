@@ -29,22 +29,21 @@ $(document).ready(function() {
   function createDashboard() {
     getTwitterData();
     document.getElementById("main").style.display = "none";
-    $('link[rel=stylesheet][href="Styles/landing.css"]').remove();
+    $('link[rel=stylesheet][href="styles/landing.css"]').remove();
     var ajaxLoader = document.createElement("div");
     ajaxLoader.setAttribute("id", "loader");
     ajaxLoader.setAttribute("class", "ajax-loader");
     var loader = document.createElement("img");
-    loader.setAttribute("src", "Assets/preload.gif");
+    loader.setAttribute("src", "assets/preload.gif");
     loader.setAttribute("class", "img-responsive");
     ajaxLoader.appendChild(loader);
     document.body.appendChild(ajaxLoader);
     $('.ajax-loader').css("visibility", "visible");
-  };
+  }
 
   function refreshPage() {
-    $('head').append('<link rel="stylesheet" type="text/css" href="Styles/landing.css" />');
+    $('head').append('<link rel="stylesheet" type="text/css" href="styles/landing.css" />');
     var ch = document.getElementById("chartcontainer");
-    var ch2 = document.getElementById("mapcontainer");
     var ch1 = document.getElementById("cont");
     var ch3 = document.getElementById("bDiv");
     var ch4 = document.getElementById("numTweet");
@@ -52,7 +51,6 @@ $(document).ready(function() {
     var ch6 = document.getElementById("cont");
     document.body.removeChild(ch);
     document.body.removeChild(ch1);
-    document.body.removeChild(ch2);
     document.body.removeChild(ch3);
     document.body.removeChild(ch4);
     document.body.removeChild(ch5);
@@ -76,7 +74,7 @@ $(document).ready(function() {
         var parsedData = JSON.parse(data);
         if (parsedData.statuses.length == 0) {
           $('.ajax-loader').css("visibility", "hidden");
-          $('head').append('<link rel="stylesheet" type="text/css" href="Styles/landing.css" />');
+          $('head').append('<link rel="stylesheet" type="text/css" href="styles/landing.css" />');
           document.getElementById("main").style.display = "block";
           document.getElementById("Hashtag").value = "";
           setTimeout(function() {
@@ -86,7 +84,6 @@ $(document).ready(function() {
         } else {
           createCountChart(parsedData.statuses);
           hourlyPplReached(parsedData.statuses);
-          createMap(parsedData.statuses);
           document.getElementById("back").addEventListener("click", refreshPage);
         }
       },
@@ -103,8 +100,8 @@ $(document).ready(function() {
     var timeCountDataSource = {
       "chart": {
         "id": 'chart1',
-        "caption": "Number of tweets",
-        "subCaption": "#" + hash,
+        "caption": "#" + hash,
+        "subCaption": "Popular Tweets - "+ new Date().toDateString(),
         "theme": "twitterTheme"
       },
       "data": []
@@ -124,7 +121,7 @@ $(document).ready(function() {
       var data = {};
       data.label = l[1] + ":" + l[2];
       data.value = timeCountMap[timeArr[k]];
-      data.toolText = timeArr[k] + " , " + timeCountMap[timeArr[k]];
+      data.toolText = l[1] + ":" + l[2] + " , " + timeCountMap[timeArr[k]] +" tweets";
       timeCountDataSource.data.push(data);
     }
     return timeCountDataSource;
@@ -151,14 +148,14 @@ $(document).ready(function() {
     var dateTime = new Date(timeData);
     var hour = dateTime.getHours();
     var min = dateTime.getMinutes();
-    var mid = "Am";
+    var mid = " AM";
     if (hour == 12) {
       hour = hour;
-      mid = "Pm";
+      mid = " PM";
     }
     if (hour > 12) {
       hour = hour % 12;
-      mid = "Pm"
+      mid = " PM"
     }
     var finalTime = dateTime.toDateString() + ":" + hour + ":" + ('0' + dateTime.getMinutes()).slice(-2) + mid;
     return finalTime;
@@ -171,10 +168,10 @@ $(document).ready(function() {
       backDiv.setAttribute("class", "backWrapper");
       var backContainer = document.createElement("div");
       backContainer.setAttribute("class", "backContainer");
+      backContainer.setAttribute("id", "back");
       var back = document.createElement("img");
-      back.setAttribute("id", "back");
       back.setAttribute("class", "img-responsive");
-      back.setAttribute("src", "Assets/back.png");
+      back.setAttribute("src", "assets/back.png");
       var backLabel = document.createElement("label");
       backLabel.innerHTML = "Back to Search";
       backContainer.appendChild(back);
@@ -188,7 +185,7 @@ $(document).ready(function() {
       document.body.appendChild(maindiv);
       FusionCharts.ready(function() {
         var CountChart = new FusionCharts({
-          type: 'line',
+          type: 'spline',
           renderAt: 'chartcontainer',
           width: '100%',
           height: '100%',
@@ -208,41 +205,10 @@ $(document).ready(function() {
   }
 
   function hourlyPplReached(data) {
-    var timeReachMap = [];
-    var reachDataSource = {};
     var totalReachCount = null;
     var totalTweet = data.length;
     for (var i = data.length - 1; i > 0; i--) {
-      var timeObj = {};
-      timeObj.time = new Date(data[i].created_at).getTime();
-      timeObj.count = data[i].retweet_count;
       totalReachCount += data[i].retweet_count;
-      timeReachMap.push(timeObj);
-    }
-    var initialTime = timeReachMap[0].time;
-    var lastTime = timeReachMap[timeReachMap.length - 1].time;
-    var diffTime = lastTime - initialTime;
-    var timeFrame = null;
-    if (difCalculation(diffTime).days < 24) {
-      if (difCalculation(diffTime).hours < 24) {
-        var totalMin = difCalculation(diffTime).hours * 60 + difCalculation(diffTime).minutes;
-        var duration = Math.round(totalMin / 24) * 60000;
-        timeFrame = "Minute wise";
-        reachDataSource = createReachDataSource(timeReachMap, duration, timeFrame);
-
-      } else {
-        var totalHours = difCalculation(diffTime).hours;
-        var hDuration = Math.round(totalHours / 24) * 3600000;
-        timeFrame = "Hourly";
-        reachDataSource = createReachDataSource(timeReachMap, hDuration, timeFrame);
-      }
-
-    } else {
-      var totalDays = difCalculation(diffTime).days;
-      var dDuration = Math.round(totalDays / 24) * 24 * 3600000;
-      timeFrame = "Daily";
-      reachDataSource = createReachDataSource(timeReachMap, dDuration, timeFrame);
-
     }
     var numTweet = document.createElement("div");
     numTweet.setAttribute("class", "numTweetWrapper");
@@ -253,7 +219,7 @@ $(document).ready(function() {
     title1.innerHTML = (totalReachCount + totalTweet).toLocaleString();
     var tx1 = document.createElement("h4");
     tx1.setAttribute("class", "card-text");
-    tx1.innerHTML = "Number of people Tweeted";
+    tx1.innerHTML = "Number of Users Tweeting";
     numTweet.appendChild(tx1);
     numTweet.appendChild(title1);
     document.body.appendChild(numTweet);
@@ -267,18 +233,7 @@ $(document).ready(function() {
     sub3.setAttribute("id", "export");
     var sub4 = document.createElement("div");
     sub4.setAttribute("class", "card card-inverse text-center");
-    var sub5 = document.createElement("div");
-    sub5.setAttribute("class", "card-block");
-    sub5.setAttribute("id", "map");
-    var title = document.createElement("div");
-    title.setAttribute("id", "reach");
-    title.setAttribute("class", "card");
-    var tx = document.createElement("h3");
-    tx.setAttribute("class", "cardText");
-    tx.innerHTML = "Total Reach Frequency";
-    sub5.appendChild(tx);
-    sub5.appendChild(title);
-    sub4.appendChild(sub5);
+    sub4.setAttribute("id", "map");
     sub3.appendChild(sub4);
     var sub6 = document.createElement("div");
     sub6.setAttribute("class", "col-sm-6");
@@ -288,7 +243,6 @@ $(document).ready(function() {
     var sub8 = document.createElement("div");
     sub8.setAttribute("class", "card-block");
     sub8.setAttribute("id", "map1");
-
     sub7.appendChild(sub8);
     sub6.appendChild(sub7);
     sub2.appendChild(sub3);
@@ -312,27 +266,19 @@ $(document).ready(function() {
           "data": [{
             "label": "Original Tweets",
             "value": totalTweet,
-            "borderColor": "#3C92C9",
-            "color": "#3C92C9"
+            "borderColor": "#2A729D",
+            "color": "#2A729D"
           }, {
-            "label": "Reply Tweets",
+            "label": "Re-Tweets",
             "value": totalReachCount,
             "borderColor": "#FFFFFF",
             "color": "#FFFFFF"
           }]
         }
       }).render();
-      var ReachTrend = new FusionCharts({
-        type: 'sparkline',
-        renderAt: 'reach',
-        width: '100%',
-        height: '100%',
-        dataFormat: 'json',
-        containerBackgroundOpacity: '0',
-        creditLabel: false,
-        dataSource: reachDataSource
-      }).render();
     });
+         
+   createMap(data);      
   }
 
   function createMap(data) {
@@ -354,7 +300,7 @@ $(document).ready(function() {
       ++mapCountMap[countryData[l]];
     }
     $.ajax({
-      url: 'Scripts/country.json',
+      url: 'scripts/country.json',
       type: 'POST',
       async: 'false',
       cache: 'false',
@@ -368,43 +314,29 @@ $(document).ready(function() {
               var dataObj = {}
               dataObj.id = countryData.country[o].code;
               dataObj.value = mapCountMap[Object.keys(mapCountMap)[m]];
+              dataObj.color = "#044D73";
               MapData.push(dataObj);
               valueArray.push(mapCountMap[Object.keys(mapCountMap)[m]]);
             }
           }
         }
         maxVal = Math.max.apply(null, valueArray);
-        var mapdiv = document.createElement("div");
-        mapdiv.setAttribute("class", "mapContainer");
-        mapdiv.setAttribute("id", "mapcontainer");
-        document.body.appendChild(mapdiv);
         FusionCharts.ready(function() {
           var chart = new FusionCharts({
             type: 'maps/worldwithcountries',
-            renderAt: 'mapcontainer',
+            renderAt: 'map',
             width: '100%',
             height: '100%',
+            containerBackgroundOpacity: '0',
             dataFormat: 'json',
             creditLabel: false,
             dataSource: {
               "chart": {
-
                 "caption": "Worldwide Activity",
-
-                "theme": "twitterTheme"
+                "theme": "twitterTheme",
+                "paletteColors": "#4193C7"
               },
-              "colorrange": {
-                "minvalue": "0",
-                "startlabel": "Low",
-                "endlabel": "High",
-                "code": "#A5DAFA",
-                "alpha": "40",
-                "gradient": "0",
-                "color": [{
-                  "maxvalue": maxVal,
-                  "code": "#3C92C9"
-                }]
-              },
+              
               "data": MapData
             }
           }).render();
@@ -415,53 +347,5 @@ $(document).ready(function() {
         alert("failure");
       }
     });
-  }
-
-  function createReachDataSource(timeReachMap, duration, timeFrame) {
-    var data = [];
-    var nextTime = null;
-    var dObj = {};
-    dObj.value = timeReachMap[0].count;
-    data.push(dObj);
-    nextTime = timeReachMap[0].time + duration;
-    for (var l = 1; l < timeReachMap.length; l++) {
-      if (timeReachMap[l].time < nextTime) {
-        continue;
-      } else {
-        let dObj = {};
-        dObj.value = timeReachMap[l].count;
-        data.push(dObj);
-        nextTime = timeReachMap[l].time + duration;
-      }
-    }
-    var tempDataSource = {
-      "chart": {
-        "theme": "twitterTheme"
-      },
-      "dataset": [{
-        "data": data
-      }]
-    };
-
-    return tempDataSource;
-  }
-
-  function difCalculation(time) {
-    var returnTimeinDays = 0;
-    var returnTimeinHours = 0;
-    var returnTimeinMin = time / 60000;
-    while (returnTimeinMin >= 60) {
-      returnTimeinHours = Math.round(returnTimeinMin / 60);
-      returnTimeinMin = Math.round(returnTimeinMin % 60);
-    }
-    while (returnTimeinHours >= 24) {
-      returnTimeinDays = Math.round(returnTimeinHours / 24);
-      returnTimeinHours = Math.round(returnTimeinHours % 24);
-    }
-    var timeDuration = {};
-    timeDuration.minutes = returnTimeinMin;
-    timeDuration.hours = returnTimeinHours;
-    timeDuration.days = returnTimeinDays;
-    return timeDuration;
   }
 });
