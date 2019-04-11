@@ -27,7 +27,7 @@ Know what’s trending, what’s going viral, and which post could use a boost w
 Please follow the given below steps to install this dashboard:
 
 * Clone the repository : 
- `git clone https://Soumya_Dutta@bitbucket.org/Soumya_Dutta/tweitter-hashgrabber.git`
+ `git clone https://Soumya_Dutta@bitbucket.org/Soumya_Dutta/real-time-twitter-hashtag-tracker.git`
 * Run the application via any local server
 
 ## Usage 
@@ -47,7 +47,7 @@ If you are interested in contributing to this dashboard, please follow the steps
 
 
 * Clone the repository : 
- `git clone git@bitbucket.org:ayanbhadury/technology-dashboard.git`
+ `git clone https://Soumya_Dutta@bitbucket.org/Soumya_Dutta/real-time-twitter-hashtag-tracker.git`
 * Fork out a separate branch.
 * Make changes.
 * Send PR.
